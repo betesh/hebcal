@@ -66,7 +66,7 @@
     return new Date(yearG, pesach_month, pesach_day);
   }
   
-  $.fn.whenIsPesach = function(yearG)
+  $.whenIsPesach = function(yearG)
   {
     return formatDate(calculate_pesach(yearG));
   };

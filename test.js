@@ -38,25 +38,26 @@ $(document).ready(function(){
     assert_equal(name, actual, false);
   }
 
-  assert_eq("CorrectDateInYear1OfCycle", $().whenIsPesach(1998), "1998-04-11");
-  assert_eq("CorrectDateInYear2OfCycle", $().whenIsPesach(1999), "1999-04-01");
-  assert_eq("CorrectDateInYear3OfCycle", $().whenIsPesach(2000), "2000-04-20");
-  assert_eq("CorrectDateInYear4OfCycle", $().whenIsPesach(2001), "2001-04-08");
-  assert_eq("CorrectDateInYear5OfCycle", $().whenIsPesach(2002), "2002-03-28");
-  assert_eq("CorrectDateInYear6OfCycle", $().whenIsPesach(2003), "2003-04-17");
-  assert_eq("CorrectDateInYear7OfCycle", $().whenIsPesach(2004), "2004-04-06");
-  assert_eq("CorrectDateInYear8OfCycle", $().whenIsPesach(2005), "2005-04-24");
-  assert_eq("CorrectDateInYear9OfCycle", $().whenIsPesach(2006), "2006-04-13");
-  assert_eq("CorrectDateInYear10OfCycle", $().whenIsPesach(2007), "2007-04-03");
-  assert_eq("CorrectDateInYear11OfCycle", $().whenIsPesach(2008), "2008-04-20");
-  assert_eq("CorrectDateInYear12OfCycle", $().whenIsPesach(2009), "2009-04-09");
-  assert_eq("CorrectDateInYear13OfCycle", $().whenIsPesach(2010), "2010-03-30");
-  assert_eq("CorrectDateInYear14OfCycle", $().whenIsPesach(2011), "2011-04-19");
-  assert_eq("CorrectDateInYear15OfCycle", $().whenIsPesach(2012), "2012-04-07");
-  assert_eq("CorrectDateInYear16OfCycle", $().whenIsPesach(2013), "2013-03-26");
-  assert_eq("CorrectDateInYear17OfCycle", $().whenIsPesach(2014), "2014-04-15");
-  assert_eq("CorrectDateInYear18OfCycle", $().whenIsPesach(2015), "2015-04-04");
-  assert_eq("CorrectDateInYear19OfCycle", $().whenIsPesach(2016), "2016-04-23");
+  // Test full 19-year cycle to verify that leap months are accounted correctly
+  assert_eq("CorrectDateInYear1OfCycle", $.whenIsPesach(1998), "1998-04-11");
+  assert_eq("CorrectDateInYear2OfCycle", $.whenIsPesach(1999), "1999-04-01");
+  assert_eq("CorrectDateInYear3OfCycle", $.whenIsPesach(2000), "2000-04-20");
+  assert_eq("CorrectDateInYear4OfCycle", $.whenIsPesach(2001), "2001-04-08");
+  assert_eq("CorrectDateInYear5OfCycle", $.whenIsPesach(2002), "2002-03-28");
+  assert_eq("CorrectDateInYear6OfCycle", $.whenIsPesach(2003), "2003-04-17");
+  assert_eq("CorrectDateInYear7OfCycle", $.whenIsPesach(2004), "2004-04-06");
+  assert_eq("CorrectDateInYear8OfCycle", $.whenIsPesach(2005), "2005-04-24");
+  assert_eq("CorrectDateInYear9OfCycle", $.whenIsPesach(2006), "2006-04-13");
+  assert_eq("CorrectDateInYear10OfCycle", $.whenIsPesach(2007), "2007-04-03");
+  assert_eq("CorrectDateInYear11OfCycle", $.whenIsPesach(2008), "2008-04-20");
+  assert_eq("CorrectDateInYear12OfCycle", $.whenIsPesach(2009), "2009-04-09");
+  assert_eq("CorrectDateInYear13OfCycle", $.whenIsPesach(2010), "2010-03-30");
+  assert_eq("CorrectDateInYear14OfCycle", $.whenIsPesach(2011), "2011-04-19");
+  assert_eq("CorrectDateInYear15OfCycle", $.whenIsPesach(2012), "2012-04-07");
+  assert_eq("CorrectDateInYear16OfCycle", $.whenIsPesach(2013), "2013-03-26");
+  assert_eq("CorrectDateInYear17OfCycle", $.whenIsPesach(2014), "2014-04-15");
+  assert_eq("CorrectDateInYear18OfCycle", $.whenIsPesach(2015), "2015-04-04");
+  assert_eq("CorrectDateInYear19OfCycle", $.whenIsPesach(2016), "2016-04-23");
 
   //isPesach() tests
   assert_false("ErevPesachIsNotPesach", $.isPesach("2012-04-06"));
