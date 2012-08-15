@@ -38,6 +38,13 @@ $(document).ready(function(){
     assert_equal(name, actual, false);
   }
 
+  function assert_day_of_week(name, date, day)
+  {
+    date = /([0-9]{3,4})-([0-9]{2})-([0-9]{2})/.exec(date);
+    date = new Date(date[1], date[2] - 1, date[3]);
+    assert_eq(name, date.getDay(), day);
+  }
+
   // Test full 19-year cycle to verify that leap months are accounted correctly
   assert_eq("CorrectDateInYear1OfCycle", $.whenIsPesach(1998), "1998-04-11");
   assert_eq("CorrectDateInYear2OfCycle", $.whenIsPesach(1999), "1999-04-01");
@@ -58,6 +65,43 @@ $(document).ready(function(){
   assert_eq("CorrectDateInYear17OfCycle", $.whenIsPesach(2014), "2014-04-15");
   assert_eq("CorrectDateInYear18OfCycle", $.whenIsPesach(2015), "2015-04-04");
   assert_eq("CorrectDateInYear19OfCycle", $.whenIsPesach(2016), "2016-04-23");
+
+  // Test each year type to verify that date is calculated based on molad
+  assert_eq("CorrectDateInYearType1", $.whenIsPesach(2019), "2019-04-20");
+  assert_eq("CorrectDateInYearType2", $.whenIsPesach(2013), "2013-03-26");
+  assert_eq("CorrectDateInYearType3", $.whenIsPesach(2001), "2001-04-08");
+  assert_eq("CorrectDateInYearType4", $.whenIsPesach(2024), "2024-04-23");
+  assert_eq("CorrectDateInYearType5", $.whenIsPesach(2012), "2012-04-07");
+  assert_eq("CorrectDateInYearType6", $.whenIsPesach(2003), "2003-04-17");
+  assert_eq("CorrectDateInYearType7", $.whenIsPesach(2000), "2000-04-20");
+  assert_eq("CorrectDateInYearType8", $.whenIsPesach(2015), "2015-04-04");
+  assert_eq("CorrectDateInYearType9", $.whenIsPesach(2029), "2029-03-31");
+  assert_eq("CorrectDateInYearType10", $.whenIsPesach(2021), "2021-03-28");
+  assert_eq("CorrectDateInYearType11", $.whenIsPesach(2010), "2010-03-30");
+  assert_eq("CorrectDateInYearType12", $.whenIsPesach(2004), "2004-04-06");
+  assert_eq("CorrectDateInYearType13", $.whenIsPesach(2002), "2002-03-28");
+  assert_eq("CorrectDateInYearType14", $.whenIsPesach(2023), "2023-04-06");
+
+  assert_eq("GregorianDivergenceOf12In1899", $.whenIsPesach(1899), "1899-03-26");
+  assert_eq("GregorianDivergenceOf13In1900", $.whenIsPesach(1900), "1900-04-14");
+  assert_eq("GregorianDivergenceOf13In2099", $.whenIsPesach(2099), "2099-04-05");
+  assert_eq("GregorianDivergenceOf14In2100", $.whenIsPesach(2100), "2100-04-24");
+
+  // Test boundary cases of DMZ
+  assert_day_of_week("516 misses DMZ by 45 halakim", $.whenIsPesach(516), 6);
+  assert_day_of_week("4048 makes DMZ with 79 halakim to spare", $.whenIsPesach(4048), 0);
+
+  // Test boundary cases of DMZ + ADU
+  assert_day_of_week("146 misses DMZ+ADU by 13 halakim", $.whenIsPesach(146), 2);
+  assert_day_of_week("3682 makes DMZ+ADU with 88 halakim to spare", $.whenIsPesach(3682), 2);
+
+  // Test boundary cases of gatarad
+  assert_day_of_week("519 misses Betutakpat by 68 halakim", $.whenIsPesach(519), 0);
+  assert_day_of_week("3862 makes Betutakpat with 95 halakim to spare", $.whenIsPesach(3862), 2);
+
+  // Test boundary cases of betutakpat
+  assert_day_of_week("2174 misses Betutakpat by 143 halakim", $.whenIsPesach(2174), 6);
+  assert_day_of_week("3683 makes Betutakpat with 89 halakim to spare", $.whenIsPesach(3683), 0);
 
   //isPesach() tests
   assert_false("ErevPesachIsNotPesach", $.isPesach("2012-04-06"));

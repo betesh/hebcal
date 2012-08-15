@@ -50,9 +50,10 @@
 
     // CALCULATE CALENDAR DATE OF PESACH
     var gregorian_divergence = Math.floor(yearG/100) - Math.floor(yearG/400) - 2;
-    var pesach_day = (molad - halakim_into_day) / HALAKIM_PER_DAY + gregorian_divergence;
+    var pesach_julian_day = (molad - halakim_into_day) / HALAKIM_PER_DAY 
 
-    var day_of_week = ((3 * yearH) + (5 * year_in_julian_cycle) + pesach_day + 5) % 7;
+    var day_of_week = ((3 * yearG) + (5 * year_in_julian_cycle) + pesach_julian_day) % 7;
+    var pesach_day = pesach_julian_day + gregorian_divergence;
 
     if (-1 != [1,3,5].indexOf(day_of_week)) {
       pesach_day += 1;
