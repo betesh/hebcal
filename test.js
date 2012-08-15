@@ -44,7 +44,8 @@ $(document).ready(function(){
     date = new Date(date[1], date[2] - 1, date[3]);
     assert_eq(name, date.getDay(), day);
   }
-
+try
+{
   // Test full 19-year cycle to verify that leap months are accounted correctly
   assert_eq("CorrectDateInYear1OfCycle", $.whenIsPesach(1998), "1998-04-11");
   assert_eq("CorrectDateInYear2OfCycle", $.whenIsPesach(1999), "1999-04-01");
@@ -265,8 +266,12 @@ $(document).ready(function(){
   output += "<div style=\"color:black;\">" + tests + " tests</div>";
   output += "<div style=\"color:green;\">" + passing + " passed</div>";
   output += "<div style=\"color:red;\">" + failing + " failed</div>";
-
+} catch (e) {
+  output += "<div style=\"color:red;\">An exception was thrown in a test.  Testing ended there.<br />" + e  + "</div>";
+} finally {
   $('#test_results').html(output);
+}
+
 });
 
 
