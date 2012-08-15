@@ -259,6 +259,9 @@ $(document).ready(function(){
   assert_true("Day9OfSukkotIsYomTov", $.isYomTov("2012-10-09"));
   assert_false("DayAfterSukkotIsNotYomTov", $.isYomTov("2012-10-10"));
 
+  assert_true("Parses3DigitYears", $.isPesach("100-04-11"));
+  assert_true("ParsesLarge4DigitYears", $.isPesach("9605-05-30"));
+
   output += "<div style=\"color:black;\">" + tests + " tests</div>";
   output += "<div style=\"color:green;\">" + passing + " passed</div>";
   output += "<div style=\"color:red;\">" + failing + " failed</div>";

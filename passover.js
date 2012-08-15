@@ -73,7 +73,7 @@
   };
 
   function parse_date(date) {
-    return /([0-9]{4})-([0-9]{2})-([0-9]{2})/.exec(date);
+    return /([0-9]{3,5})-([0-9]{2})-([0-9]{2})/.exec(date);
   }
 
   function get_distance(date)
@@ -116,18 +116,21 @@
 
   $.isMoed = function(date)
   {
-    return is_distance_in_range(get_distance(date), 2, 4) || is_distance_in_range(get_distance(date), SUKKOT_DISTANCE + 2, 5);
+    distance = get_distance(date);
+    return is_distance_in_range(distance, 2, 4) || is_distance_in_range(distance, SUKKOT_DISTANCE + 2, 5);
   };
 
   $.isRegel = function(date)
   {
-    return is_distance_in_range(get_distance(date), 0, 8) || is_distance_in_range(get_distance(date), SHAVUOT_DISTANCE, 2) || is_distance_in_range(get_distance(date), SUKKOT_DISTANCE, 9);
+    distance = get_distance(date);
+    return is_distance_in_range(distance, 0, 8) || is_distance_in_range(distance, SHAVUOT_DISTANCE, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE, 9);
   };
 
   $.isYomTov = function(date)
   {
     // Note that Yom Kippur is not a Yom Tov
-    return is_distance_in_range(get_distance(date), 0, 2) || is_distance_in_range(get_distance(date), 6, 2) || is_distance_in_range(get_distance(date), SHAVUOT_DISTANCE, 2) || is_distance_in_range(get_distance(date), SUKKOT_DISTANCE - 14, 2) || is_distance_in_range(get_distance(date), SUKKOT_DISTANCE, 2) || is_distance_in_range(get_distance(date), SUKKOT_DISTANCE + 7, 2);
+    distance = get_distance(date);
+    return is_distance_in_range(distance, 0, 2) || is_distance_in_range(distance, 6, 2) || is_distance_in_range(distance, SHAVUOT_DISTANCE, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE - 14, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE + 7, 2);
   };
 
 })(jQuery);
