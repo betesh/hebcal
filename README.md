@@ -34,12 +34,12 @@ To Run Unit Tests
 
 To Use
 ===========
-1. All date formats are YYYY-mm-dd, where month is index from 1 (i.e. 1 == January, not the usul javascript index of 0 == January!) and YYYY is the Gregorian year.
+1. All date formats are YYYY-mm-dd, where month is index from 1 (i.e. 1 == January, not the usual javascript index of 0 == January!) and YYYY is the Gregorian year.
 2. $.whenIsPesach(yyyy) returns a date in the above format, where yyyy is the Gregorian year.  Note that the date returned is the first day of Pesach, not the day on which Pesach begins at sunset.
 3. $.isPesach(d) returns true iff d is a date during Pesach, in the above format.  Note that the day on which Pesach begins at sunset returns false.
 4. The following functions work in a similar way to $.isPesach():
-  a. $.isShavuot(), $.isRoshHashanah(), $.isYomKippur(), $.isSukkot();
-  b. $.isRegel(): $.isPesach() || $.isShavuot() || $.isSukkot();
-  c. $.isMoed(): Hol HaMoed Pesach or Hol HaMoed Sukkot);
-  d. $.isYomTov(): ($.isPesach() || $.isSukkot() || $.isShavuot() || $.isRoshHashanah()) && !$.isMoed();
-    Note that isYomTov(yk) == false, where yk is the date of Yom Kippur.
+ a. $.isShavuot(), $.isRoshHashanah(), $.isYomKippur(), $.isSukkot();
+ b. $.isRegel(): $.isPesach() || $.isShavuot() || $.isSukkot();
+ c. $.isMoed(): Hol HaMoed Pesach or Hol HaMoed Sukkot);
+ d. $.isYomTov(): ($.isPesach() || $.isSukkot() || $.isShavuot() || $.isRoshHashanah()) && !$.isMoed();
+  Note that isYomTov(yk) == false, where yk is the date of Yom Kippur.
