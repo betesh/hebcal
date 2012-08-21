@@ -97,8 +97,8 @@ try
   assert_day_of_week("3682 makes DMZ+ADU with 88 halakim to spare", $.whenIsPesach(3682), 2);
 
   // Test boundary cases of gatarad
-  assert_day_of_week("519 misses Betutakpat by 68 halakim", $.whenIsPesach(519), 0);
-  assert_day_of_week("3862 makes Betutakpat with 95 halakim to spare", $.whenIsPesach(3862), 2);
+  assert_day_of_week("519 misses Gatarad by 68 halakim", $.whenIsPesach(519), 0);
+  assert_day_of_week("3862 makes Gatarad with 95 halakim to spare", $.whenIsPesach(3862), 2);
 
   // Test boundary cases of betutakpat
   assert_day_of_week("2174 misses Betutakpat by 143 halakim", $.whenIsPesach(2174), 6);
