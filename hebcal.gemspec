@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/passover/version', __FILE__)
+require File.expand_path('../lib/hebcal/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Isaac Betesh"]
@@ -10,9 +10,9 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "passover"
+  gem.name          = "hebcal"
   gem.require_paths = ["lib"]
-  gem.version       = Passover::VERSION
+  gem.version       = HebCal::VERSION
   gem.license       = 'MIT'
   gem.post_install_message = `cat README.md`
   gem.add_runtime_dependency 'jquery-rails'

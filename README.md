@@ -1,4 +1,4 @@
-passover
+HebCal
 ========
 
 Determines the date of Passover for a Gregorian year. Also includes boolean functions to check whether a date is a Jewish holiday. Javascript (requires jQuery)
@@ -7,11 +7,11 @@ Installation as a Ruby gem
 ==========================
 
 Add this line to your application's Gemfile:
-    gem 'passover'
+    gem 'hebcal'
 And then execute:
     $ bundle
 Or install it yourself as:
-    $ gem install passover
+    $ gem install hebcal
 
 To Run Unit Tests
 =================
