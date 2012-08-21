@@ -1,5 +1,5 @@
 require 'hebcal/constants'
-require 'hebcal/helpers'
+require 'hebcal/passoverHelper'
 
 module HebCal
   module Passover
@@ -10,7 +10,7 @@ module HebCal
       # CALCULATE MOLAD
       yearH = yearG + 3760
       year_in_julian_cycle = yearG % 4
-      molad = Helpers::CalculateMolad yearH
+      molad = PassoverHelper::CalculateMolad yearH
       halakim_into_day = molad % _HPD
 
       # CALCULATE CALENDAR DATE OF PESACH
@@ -22,9 +22,9 @@ module HebCal
 
       if [1,3,5].include? day_of_week then
         pesach_day += 1
-      elsif (0 == day_of_week && !Helpers::PrecedesLeapYear(yearH) && halakim_into_day >= PassoverConstants::TARAD + _MZ)
+      elsif (0 == day_of_week && !PassoverHelper::PrecedesLeapYear(yearH) && halakim_into_day >= PassoverConstants::TARAD + _MZ)
         pesach_day += 2
-      elsif (6 == day_of_week && Helpers::IsLeapYear(yearH) && halakim_into_day >= PassoverConstants::TUTAKPAT + _MZ)
+      elsif (6 == day_of_week && PassoverHelper::IsLeapYear(yearH) && halakim_into_day >= PassoverConstants::TUTAKPAT + _MZ)
         pesach_day += 1
       end
 

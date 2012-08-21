@@ -1,16 +1,16 @@
 require 'hebcal/constants'
 
 module HebCal
-  module Helpers
-    def Helpers.IsLeapYear year
+  module PassoverHelper
+    def PassoverHelper.IsLeapYear year
       [3,6,8,11,14,17,19].include? (year % 19)
     end
 
-    def Helpers.PrecedesLeapYear year
+    def PassoverHelper.PrecedesLeapYear year
       IsLeapYear(year+1)
     end
 
-    def Helpers.CalculateMolad yearH
+    def PassoverHelper.CalculateMolad yearH
       _HPD = PassoverConstants::HALAKIM_PER_DAY
       _LC = PassoverConstants::LUNAR_CYCLE
 
