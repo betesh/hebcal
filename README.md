@@ -26,13 +26,17 @@ Or install it yourself as:
     3- and 4-digit years are supported, so the domain of valid years is 100-9999.  For years before the Gregorian transition (1582), the transition is ignored and the proleptic Gregorian calendar is used.
 
 #### Calculating the date of Passover
-1. In the desired class, declare `include HebCal::Passover`
+1. At the top of the file where the class is defined, declare `require `hebcal``
 
-2. `WhenIsPesach(yyyy)` returns a Ruby Time object representing midnight on the first day of passover, where `yyyy` is the Gregorian year
+1. In the class, declare `include HebCal::Passover`
+
+1. `WhenIsPesach(yyyy)` returns a Ruby Time object representing midnight on the first day of passover, where `yyyy` is the Gregorian year
 
     Note that the date returned is the first day of Pesach, not the day on which Pesach begins at sunset.
 
 #### Finding out if a date is a holiday
+1. At the top of the file where the class is defined, declare `require `hebcal``
+
 1. In the desired class, declare `include HebCal::Holidays`
 
 1. `IsPesach(d)` returns true iff d is a Ruby Time object representing a date during Pesach.  Note that the day on which Pesach begins at sunset returns false.
@@ -53,6 +57,13 @@ Or install it yourself as:
 1. Open index.html in a browser.  You should see a lot of green text saying that tests passed.  If not, javascript may not be enabled in your browser.  Scroll down to the bottom and verify that the summary says all tests passed.
 
 ### To Use
+1. Include the javascript source file in your HTML page
+
+ 1. If using Ruby On Rails, you can declare `//= require hebcal` at the top of a javascript or coffeescript file
+ 1. To include the script explicitly in an html file, 
+
+     `<script src="app/assets/javascripts/hebcal/passover.js" type="text/javascript"></script>`
+
 1. All date formats are YYYY-mm-dd, where month is index from 1 (i.e. 1 == January, not the usual javascript index of 0 == January!) and YYYY is the Gregorian year.
 
     3- and 4-digit years are supported, so the domain of valid years is 100-9999.  For years before the Gregorian transition (1582), the transition is ignored and the proleptic Gregorian calendar is used.
