@@ -16,4 +16,9 @@ module HebCal
     TUTAKPAT = 15 * HALAKIM_PER_HOUR + 589
     TARAD = 9 * HALAKIM_PER_HOUR + 204
   end
+
+  module HolidayConstants
+    SHAVUOT_DISTANCE = 50
+    SUKKOT_DISTANCE = 59 * 3
+  end
 end
