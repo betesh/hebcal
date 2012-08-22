@@ -50,8 +50,7 @@ Or install it yourself as:
 ## Javascript Version
 
 ### To Run Unit Tests
-1. Download the latest jQuery library and save it in the root folder of the repo as jquery.js
-1. Open index.html in a browser.
+1. Open index.html in a browser.  You should see a lot of green text saying that tests passed.  If not, javascript may not be enabled in your browser.  Scroll down to the bottom and verify that the summary says all tests passed.
 
 ### To Use
 1. All date formats are YYYY-mm-dd, where month is index from 1 (i.e. 1 == January, not the usual javascript index of 0 == January!) and YYYY is the Gregorian year.

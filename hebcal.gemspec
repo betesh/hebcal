@@ -14,6 +14,4 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = HebCal::VERSION
   gem.license       = 'MIT'
-  gem.post_install_message = `cat README.md`
-  gem.add_runtime_dependency 'jquery-rails'
 end

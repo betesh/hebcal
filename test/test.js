@@ -1,4 +1,6 @@
-$(document).ready(function(){
+document._$ = {}
+$ = document._$
+function RunTest() {
   var output = "";
   var tests = 0;
   var passing = 0;
@@ -269,10 +271,10 @@ try
 } catch (e) {
   output += "<div style=\"color:red;\">An exception was thrown in a test.  Testing ended there.<br />" + e  + "</div>";
 } finally {
-  $('#test_results').html(output);
+  document.getElementById('test_results').innerHTML = output;
 }
 
-});
+}
 
 
 
