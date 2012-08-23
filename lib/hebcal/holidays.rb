@@ -50,13 +50,10 @@ public
     end
 
     def IsHanukah date
-      pesach1 = H.WhenIsPesach(date.year)
-      pesach2 = pesach1 > date ? pesach1 : H.WhenIsPesach(pesach1.year + 1)
-      pesach1 = H.WhenIsPesach(pesach1.year - 1) if pesach1 > date
-      length = H.Distance pesach1, pesach2
+      hash = H.PesachAndYearLength date
       distance = HolidayConstants::STANDARD_HANUKAH_DISTANCE
-      distance = distance + 1 if [355, 385].include?(length)
-      H.InRange(H.Distance(pesach1, date), distance, 8)
+      distance = distance + 1 if [355, 385].include?(hash[:length])
+      H.InRange(H.Distance(hash[:pesach], date), distance, 8)
     end
 
     def IsHanukkah date
@@ -88,14 +85,11 @@ public
     end
 
     def Is10Tevet date
-      pesach1 = H.WhenIsPesach(date.year)
-      pesach2 = pesach1 > date ? pesach1 : H.WhenIsPesach(pesach1.year + 1)
-      pesach1 = H.WhenIsPesach(pesach1.year - 1) if pesach1 > date
-      length = H.Distance pesach1, pesach2
+      hash = H.PesachAndYearLength date
       distance = HolidayConstants::STANDARD_10_TEVET_DISTANCE
-      distance = distance - 1 if [353, 383].include?(length)
-      distance = distance + 1 if [355, 385].include?(length)
-      H.InRange(H.Distance(pesach1, date), distance, 1)
+      distance = distance - 1 if [353, 383].include?(hash[:length])
+      distance = distance + 1 if [355, 385].include?(hash[:length])
+      H.InRange(H.Distance(hash[:pesach], date), distance, 1)
     end
 
     def IsTaanitEster date

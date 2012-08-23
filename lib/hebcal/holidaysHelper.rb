@@ -17,5 +17,13 @@ module HebCal
     def InRange distance, start, length
       (distance >= start) && (distance <= start + length - 1)
     end
+
+    def PesachAndYearLength date
+      pesach1 = WhenIsPesach(date.year)
+      pesach2 = pesach1 > date ? pesach1 : WhenIsPesach(pesach1.year + 1)
+      pesach1 = WhenIsPesach(pesach1.year - 1) if pesach1 > date
+      length = Distance pesach1, pesach2
+      { :pesach => pesach1, :length => length}
+    end
   end
 end
