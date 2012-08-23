@@ -326,16 +326,16 @@ try
   assert_true("Day8OfHanukaIsHanukaInA384DayYear", $.isHanuka("2021-12-06"));
   assert_false("DayAfterHanukaIsNotHanukaInA384DayYear", $.isHanuka("2021-12-07"));
 
-  assert_false("ErevHanukaIsNotHanukaInA355DayYear", $.isHanuka("2015-12-06"));
-  assert_true("Day1OfHanukaIsHanukaInA355DayYear", $.isHanukka("2015-12-07"));
-  assert_true("Day2OfHanukaIsHanukaInA355DayYear", $.isHanukah("2015-12-08"));
-  assert_true("Day3OfHanukaIsHanukaInA355DayYear", $.isHanukkah("2015-12-09"));
-  assert_true("Day4OfHanukaIsHanukaInA355DayYear", $.isChanuka("2015-12-10"));
-  assert_true("Day5OfHanukaIsHanukaInA355DayYear", $.isChanukka("2015-12-11"));
-  assert_true("Day6OfHanukaIsHanukaInA355DayYear", $.isChanukah("2015-12-12"));
-  assert_true("Day7OfHanukaIsHanukaInA355DayYear", $.isChanukkah("2015-12-13"));
-  assert_true("Day8OfHanukaIsHanukaInA355DayYear", $.isHanuka("2015-12-14"));
-  assert_false("DayAfterHanukaIsNotHanukaInA355DayYear", $.isHanuka("2015-12-15"));
+  assert_false("ErevHanukaIsNotHanukaInA385DayYear", $.isHanuka("2015-12-06"));
+  assert_true("Day1OfHanukaIsHanukaInA385DayYear", $.isHanukka("2015-12-07"));
+  assert_true("Day2OfHanukaIsHanukaInA385DayYear", $.isHanukah("2015-12-08"));
+  assert_true("Day3OfHanukaIsHanukaInA385DayYear", $.isHanukkah("2015-12-09"));
+  assert_true("Day4OfHanukaIsHanukaInA385DayYear", $.isChanuka("2015-12-10"));
+  assert_true("Day5OfHanukaIsHanukaInA385DayYear", $.isChanukka("2015-12-11"));
+  assert_true("Day6OfHanukaIsHanukaInA385DayYear", $.isChanukah("2015-12-12"));
+  assert_true("Day7OfHanukaIsHanukaInA385DayYear", $.isChanukkah("2015-12-13"));
+  assert_true("Day8OfHanukaIsHanukaInA385DayYear", $.isHanuka("2015-12-14"));
+  assert_false("DayAfterHanukaIsNotHanukaInA385DayYear", $.isHanuka("2015-12-15"));
 
   // isRoshHodesh() tests
   // 353 day year
