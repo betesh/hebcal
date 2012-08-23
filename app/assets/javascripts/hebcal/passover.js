@@ -3,18 +3,15 @@
   var SHAVUOT_DISTANCE = 50;
   var SUKKOT_DISTANCE = 59 * 3;
 
-  function is_leap_year(year)
-  {
+  function is_leap_year(year) {
     return (-1 != [3,6,8,11,14,17,19].indexOf(year % 19));
   }
 
-  function precedes_leap_year(year)
-  {
+  function precedes_leap_year(year) {
     return is_leap_year(year+1);
   }
 
-  function leadingZero(n)
-  {
+  function leadingZero(n) {
     return n <= 9 ? "0" + n : n;
   }
 
@@ -67,8 +64,7 @@
     return new Date(yearG, pesach_month, pesach_day);
   }
   
-  $.whenIsPesach = function(yearG)
-  {
+  $.whenIsPesach = function(yearG) {
     return formatDate(calculate_pesach(yearG));
   };
 
@@ -76,8 +72,7 @@
     return /([0-9]{3,5})-([0-9]{2})-([0-9]{2})/.exec(date);
   }
 
-  function get_distance(date)
-  {
+  function get_distance(date) {
     date = parse_date(date);
     var pesach = calculate_pesach(parseInt(date[1]));
     date = new Date(date[1], date[2] - 1, date[3]);
@@ -88,49 +83,39 @@
     return distance >= begin && distance <= begin + length - 1;
   }
 
-  $.isPesach = function(date)
-  {
+  $.isPesach = function(date) {
     return is_distance_in_range(get_distance(date), 0, 8);
   };
 
-  $.isShavuot = function(date)
-  {
+  $.isShavuot = function(date) {
     return is_distance_in_range(get_distance(date), SHAVUOT_DISTANCE, 2);
   };
 
-
-  $.isRoshHashanah = $.isRoshHaShanah = function(date)
-  {
+  $.isRoshHashanah = $.isRoshHaShanah = function(date) {
     return is_distance_in_range(get_distance(date), SUKKOT_DISTANCE - 14, 2);
   };
 
-  $.isYomKippur = function(date)
-  {
+  $.isYomKippur = function(date) {
     return is_distance_in_range(get_distance(date), SUKKOT_DISTANCE - 5, 1);
   };
 
-  $.isSukkot = function(date)
-  {
+  $.isSukkot = function(date) {
     return is_distance_in_range(get_distance(date), SUKKOT_DISTANCE, 9);
   };
 
-  $.isMoed = function(date)
-  {
+  $.isMoed = function(date) {
     distance = get_distance(date);
     return is_distance_in_range(distance, 2, 4) || is_distance_in_range(distance, SUKKOT_DISTANCE + 2, 5);
   };
 
-  $.isRegel = function(date)
-  {
+  $.isRegel = function(date) {
     distance = get_distance(date);
     return is_distance_in_range(distance, 0, 8) || is_distance_in_range(distance, SHAVUOT_DISTANCE, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE, 9);
   };
 
-  $.isYomTov = function(date)
-  {
+  $.isYomTov = function(date) {
     // Note that Yom Kippur is not a Yom Tov
     distance = get_distance(date);
     return is_distance_in_range(distance, 0, 2) || is_distance_in_range(distance, 6, 2) || is_distance_in_range(distance, SHAVUOT_DISTANCE, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE - 14, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE + 7, 2);
   };
-
 })($);
