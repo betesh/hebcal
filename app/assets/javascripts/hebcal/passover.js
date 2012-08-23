@@ -5,6 +5,7 @@
   var PURIM_DISTANCE = -30;
   var STANDARD_HANUKAH_DISTANCE = 59 * 4 + 10;
   var FAST_AB_DISTANCE = 59 * 2 - 6;
+  var STANDARD_10_TEVET_DISTANCE = 59 * 4 + 30 - 5;
 
   function is_leap_year(year) {
     return (-1 != [3,6,8,11,14,17,19].indexOf(year % 19));
@@ -196,8 +197,9 @@
   }
 
   function is_fast_with_sunday_postponement(date, distance) {
-    dow = parse_date(date).getDay;
-    return (6 != dow && is_distance_in_range(pesach_distance(date), distance, 1)) || (0 == dow && is_distance_in_range(pesach_distance(date), distance + 1, 1));
+    var dow = parse_date(date).getDay();
+    var pesach_dist = pesach_distance(date);
+    return (6 != dow && is_distance_in_range(pesach_dist, distance, 1)) || (0 == dow && is_distance_in_range(pesach_dist, distance + 1, 1));
   }
 
   $.is9Ab = $.is9Av = function(date) {
@@ -210,6 +212,42 @@
 
   $.isTzomGedalia = $.isTzomGedaliah = $.isFastOfGedalia = $.isFastOfGedaliah = function(date) {
     return is_fast_with_sunday_postponement(date, SUKKOT_DISTANCE - 12);
+  }
+
+  $.isTaanitEsther = $.isTaanitEster = function(date) {
+    var dow = parse_date(date).getDay();
+    return (6 != dow && is_distance_in_range(pesach_distance(date), PURIM_DISTANCE - 1, 1)) || (4 == dow && is_distance_in_range(pesach_distance(date), PURIM_DISTANCE - 3, 1));
+  }
+
+  $.is10Tevet = function(date) {
+    date = parse_date(date);
+    var data = get_pesach_and_year_length(date);
+    var distance = STANDARD_10_TEVET_DISTANCE
+    if (-1 != [353, 383].indexOf(data.length)) {
+      distance = distance - 1;
+    }
+    if (-1 != [355, 385].indexOf(data.length)) {
+      distance = distance + 1;
+    }
+    return is_distance_in_range(get_distance(data.pesach, date), distance, 1);
+  }
+
+  $.isTaanit = function(date) {
+    var dow = parse_date(date).getDay();
+    if (6 == dow) {
+      return false;
+    }
+    var distance = pesach_distance(date);
+    if (is_distance_in_range(distance, FAST_AB_DISTANCE, 1) || is_distance_in_range(distance, FAST_AB_DISTANCE - 21, 1) || is_distance_in_range(distance, SUKKOT_DISTANCE - 12, 1) || is_distance_in_range(distance, PURIM_DISTANCE - 1, 1)) {
+      return true;
+    }
+    if (0 == dow && (is_distance_in_range(distance, FAST_AB_DISTANCE + 1, 1) || is_distance_in_range(distance, FAST_AB_DISTANCE - 21 + 1, 1) || is_distance_in_range(distance, SUKKOT_DISTANCE - 12 + 1, 1))) {
+      return true;
+    }
+    if (4 == dow && is_distance_in_range(distance, PURIM_DISTANCE - 3, 1)) {
+      return true;
+    }
+    return $.is10Tevet(date);
   }
 
 })($);

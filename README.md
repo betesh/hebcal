@@ -2,7 +2,7 @@
 
 Determines the date of Passover for a Gregorian year. Also includes boolean functions to check whether a date is a Jewish holiday, Fast Day or Rosh Chodesh.
 Supported languages:
- Javascript (currently supports limited implementation of checking for Fast days)
+ Javascript
  Ruby
 
 ## Installation as a Ruby gem
@@ -93,5 +93,7 @@ Or install it yourself as:
 
  1. `$.isRoshChodesh()`
 
- 1. `$.is17Tamuz()`, `$.is9Av()`, `$.isFastOfGedalia()`
+ 1. `$.is10Tevet()`, `$.isTaanitEster()`, `$.is17Tamuz()`, `$.is9Av()`, `$.isFastOfGedalia()`
+
+ 1. `$.isTaanit()`: `$.is10Tevet() || $.isTaanitEster() || $.is17Tamuz() || $.is9Av() || $.isFastOfGedalia()`
 
