@@ -139,7 +139,7 @@ public
     def IsTaanit date
       return false if 6 == date.wday
       distance = H.DistanceToPassover(date)
-      H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE, 1) || H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE - 21, 1) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE - 12, 1) || H.InRange(distance, HolidayConstants::PURIM_DISTANCE - 1, 1) || (0 == date.wday && (H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE + 1, 1) || H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE - 21 + 1, 1) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE - 12 + 1, 1))) || (4 == date.wday && H.InRange(H.DistanceToPassover(date), HolidayConstants::PURIM_DISTANCE - 3, 1)) || Is10Tevet(date)
+      H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE, 1) || H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE - 21, 1) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE - 12, 1) || H.InRange(distance, HolidayConstants::PURIM_DISTANCE - 1, 1) || (0 == date.wday && (H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE + 1, 1) || H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE - 21 + 1, 1) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE - 12 + 1, 1))) || (4 == date.wday && H.InRange(distance, HolidayConstants::PURIM_DISTANCE - 3, 1)) || Is10Tevet(date)
     end
 
     def IsRoshHodesh date
