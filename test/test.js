@@ -683,7 +683,57 @@ try
   assert_true("RoshHodeshNisanIsRoshHodeshInA385DayYear", $.isRoshChodesh("2027-04-08"));
   assert_false("DayAfterRoshHodeshNisanIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2027-04-09"));
 
+  // Fast days
+  // 17 Tammuz
+  assert_false("Erev17TammuzIsNot17TammuzWhen17TammuzIsOnATuesday", $.is17Tammuz("2024-07-22"));
+  assert_true("17TammuzIs17TammuzWhen17TammuzIsOnATuesday", $.is17Tamuz("2024-07-23"));
+  assert_false("DayAfter17TammuzIsNot17TammuzWhen17TammuzIsOnATuesday", $.is17Tammuz("2024-07-24"));
 
+  assert_false("Erev17TammuzIsNot17TammuzWhen17TammuzIsOnAThursday", $.is17Tamuz("2023-07-05"));
+  assert_true("17TammuzIs17TammuzWhen17TammuzIsOnAThursday", $.is17Tammuz("2023-07-06"));
+  assert_false("DayAfter17TammuzIsNot17TammuzWhen17TammuzIsOnAThursday", $.is17Tamuz("2023-07-07"));
+
+  assert_false("Erev17TammuzIsNot17TammuzWhen17TammuzIsOnASunday", $.is17Tammuz("2021-06-26"));
+  assert_true("17TammuzIs17TammuzWhen17TammuzIsOnAToSunday", $.is17Tamuz("2021-06-27"));
+  assert_false("DayAfter17TammuzIsNot17TammuzWhen17TammuzIsOnAToSunday", $.is17Tammuz("2021-06-28"));
+
+  assert_false("Erev17TammuzIsNot17TammuzWhen17TammuzIsPostponedToSunday", $.is17Tamuz("2022-07-15"));
+  assert_true("17TammuzIs17TammuzWhen17TammuzIsPostponedToSunday", $.is17Tammuz("2022-07-16"));
+  assert_false("DayAfter17TammuzIsNot17TammuzWhen17TammuzIsPostponedToSunday", $.is17Tamuz("2022-07-17"));
+
+  // 9 Av
+  assert_false("Erev9AbIsNot9AbWhen9AbIsOnATuesday", $.is9Ab("2024-08-12"));
+  assert_true("9AbIs9AbWhen9AbIsOnATuesday", $.is9Av("2024-08-13"));
+  assert_false("DayAfter9AbIsNot9AbWhen9AbIsOnATuesday", $.is9Ab("2024-08-14"));
+
+  assert_false("Erev9AbIsNot9AbWhen9AbIsOnAThursday", $.is9Av("2023-07-26"));
+  assert_true("9AbIs9AbWhen9AbIsOnAThursday", $.is9Ab("2023-07-27"));
+  assert_false("DayAfter9AbIsNot9AbWhen9AbIsOnAThursday", $.is9Av("2023-07-28"));
+
+  assert_false("Erev9AbIsNot9AbWhen9AbIsOnASunday", $.is9Ab("2021-07-17"));
+  assert_true("9AbIs9AbWhen9AbIsOnAToSunday", $.is9Av("2021-07-18"));
+  assert_false("DayAfter9AbIsNot9AbWhen9AbIsOnAToSunday", $.is9Ab("2021-07-19"));
+
+  assert_false("Erev9AbIsNot9AbWhen9AbIsPostponedToSunday", $.is9Av("2022-08-05"));
+  assert_true("9AbIs9AbWhen9AbIsPostponedToSunday", $.is9Ab("2022-08-06"));
+  assert_false("DayAfter9AbIsNot9AbWhen9AbIsPostponedToSunday", $.is9Av("2022-08-07"));
+
+  // Tzom Gedalia
+  assert_false("ErevTzomGedaliaIsNotTzomGedaliaWhenTzomGedaliaIsOnAMonday", $.isTzomGedalia("2023-09-17"));
+  assert_true("TzomGedaliaIsTzomGedaliaWhenTzomGedaliaIsOnAMonday", $.isFastOfGedalia("2023-09-18"));
+  assert_false("DayAfterTzom GedaliaIsNotTzomGedaliaWhenTzomGedaliaIsOnAMonday", $.isTzomGedaliah("2023-09-19"));
+
+  assert_false("ErevTzomGedaliaIsNotTzomGedaliaWhenTzomGedaliaIsOnAWednesday", $.isFastOfGedaliah("2022-09-27"));
+  assert_true("TzomGedaliaIsTzomGedaliaWhenTzomGedaliaIsOnAWednesday", $.isTzomGedalia("2022-09-28"));
+  assert_false("DayAfterTzomGedaliaIsNotTzomGedaliaWhenTzomGedaliaIsOnAWednesday", $.isFastOfGedalia("2022-09-29"));
+
+  assert_false("ErevTzomGedaliaIsNotTzomGedaliaWhenTzomGedaliaIsOnAThursday", $.isTzomGedaliah("2021-09-08"));
+  assert_true("TzomGedaliaIsTzomGedaliaWhenTzomGedaliaIsOnAToThursday", $.isFastOfGedaliah("2021-09-09"));
+  assert_false("DayAfterTzomGedaliaIsNotTzomGedaliaWhenTzomGedaliaIsOnAToThursday", $.isTzomGedalia("2021-09-10"));
+
+  assert_false("ErevTzomGedaliaIsNotTzomGedaliaWhenTzomGedaliaIsPostponedToSunday", $.isFastOfGedalia("2017-09-22"));
+  assert_true("TzomGedaliaIsTzomGedaliaWhenTzomGedaliaIsPostponedToSunday", $.isTzomGedaliah("2017-09-23"));
+  assert_false("DayAfterTzomGedaliaIsNotTzomGedaliaWhenTzomGedaliaIsPostponedToSunday", $.isFastOfGedaliah("2017-09-24"));
 
 
 

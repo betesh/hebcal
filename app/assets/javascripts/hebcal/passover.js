@@ -4,6 +4,7 @@
   var SUKKOT_DISTANCE = 59 * 3;
   var PURIM_DISTANCE = -30;
   var STANDARD_HANUKAH_DISTANCE = 59 * 4 + 10;
+  var FAST_AB_DISTANCE = 59 * 2 - 6;
 
   function is_leap_year(year) {
     return (-1 != [3,6,8,11,14,17,19].indexOf(year % 19));
@@ -192,6 +193,23 @@
       }
     }
     return (-1 != distances.indexOf(distance));
+  }
+
+  function is_fast_with_sunday_postponement(date, distance) {
+    dow = parse_date(date).getDay;
+    return (6 != dow && is_distance_in_range(pesach_distance(date), distance, 1)) || (0 == dow && is_distance_in_range(pesach_distance(date), distance + 1, 1));
+  }
+
+  $.is9Ab = $.is9Av = function(date) {
+    return is_fast_with_sunday_postponement(date, FAST_AB_DISTANCE);
+  }
+
+  $.is17Tamuz = $.is17Tammuz = function(date) {
+    return is_fast_with_sunday_postponement(date, FAST_AB_DISTANCE - 21);
+  }
+
+  $.isTzomGedalia = $.isTzomGedaliah = $.isFastOfGedalia = $.isFastOfGedaliah = function(date) {
+    return is_fast_with_sunday_postponement(date, SUKKOT_DISTANCE - 12);
   }
 
 })($);
