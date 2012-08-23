@@ -141,5 +141,35 @@ public
       distance = H.DistanceToPassover(date)
       H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE, 1) || H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE - 21, 1) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE - 12, 1) || H.InRange(distance, HolidayConstants::PURIM_DISTANCE - 1, 1) || (0 == date.wday && (H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE + 1, 1) || H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE - 21 + 1, 1) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE - 12 + 1, 1))) || (4 == date.wday && H.InRange(H.DistanceToPassover(date), HolidayConstants::PURIM_DISTANCE - 3, 1)) || Is10Tevet(date)
     end
+
+    def IsRoshHodesh date
+      hash = H.PesachAndYearLength date
+      distance = H.Distance(hash[:pesach], date)
+      length = hash[:length]
+      distances =      [   -59 + 15,    -59 + 16,    -59 + 30 + 15] # Adar(2) Nisan
+      distances.concat [         15,          16,          30 + 15] # Iyar Sivan
+      distances.concat [    59 + 15,     59 + 16,     59 + 30 + 15] # Tamuz Ab
+      distances.concat [2 * 59 + 15, 2 * 59 + 16]                   # Elul
+      distances.concat [3 * 59 + 15, 3 * 59 + 16, 3 * 59 + 30 + 15] # Heshvan, 1st day Kislev
+      if [353, 383].include? length then
+        distances.concat [4 * 59 + 15] # Tevet
+        distances.concat [4 * 59 + 30 + 14] # Shevat
+        distances.concat [5 * 59 + 14, 5 * 59 + 15] if 383 == length # Adar1
+      elsif [354, 384].include? length then
+        distances.concat [4 * 59 + 15, 4 * 59 + 16] # Tevet
+        distances.concat [4 * 59 + 30 + 15] # Shevat
+        distances.concat [5 * 59 + 15, 5 * 59 + 16] if 384 == length # Adar1
+      elsif [355, 385].include? length then
+        distances.concat [3 * 59 + 30 + 16] # 2nd day Kislev
+        distances.concat [4 * 59 + 16, 4 * 59 + 17] # Tevet
+        distances.concat [4 * 59 + 30 + 16] # Shevat
+        distances.concat [5 * 59 + 16, 5 * 59 + 17] if 385 == length # Adar1
+      end
+      distances.include? distance
+    end
+
+    def IsRoshChodesh date
+      IsRoshHodesh date
+    end
   end
 end

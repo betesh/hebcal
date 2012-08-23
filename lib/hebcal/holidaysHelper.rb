@@ -20,8 +20,12 @@ module HebCal
 
     def PesachAndYearLength date
       pesach1 = WhenIsPesach(date.year)
-      pesach2 = pesach1 > date ? pesach1 : WhenIsPesach(pesach1.year + 1)
-      pesach1 = WhenIsPesach(pesach1.year - 1) if pesach1 > date
+      if (Distance(pesach1, date) < -59) then
+        pesach2 = pesach1
+        pesach1 = WhenIsPesach(pesach1.year - 1)
+      else
+        pesach2 = WhenIsPesach(pesach1.year + 1)
+      end
       length = Distance pesach1, pesach2
       { :pesach => pesach1, :length => length}
     end
