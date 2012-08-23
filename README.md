@@ -2,7 +2,7 @@
 
 Determines the date of Passover for a Gregorian year. Also includes boolean functions to check whether a date is a Jewish holiday, Fast Day or Rosh Chodesh.
 Supported languages:
- Javascript (currently does not support checking for Hanukah, Purim, Fast days or Rosh Chodesh)
+ Javascript (currently does not support checking for Fast days or Rosh Chodesh)
  Ruby
 
 ## Installation as a Ruby gem
@@ -88,3 +88,6 @@ Or install it yourself as:
  1. $.isYomTov(): ($.isPesach() || $.isSukkot() || $.isShavuot() || $.isRoshHashanah()) && !$.isMoed();
 
      Note that isYomTov(yk) == false, where yk is the date of Yom Kippur.
+
+ 1. `$.isPurim()`, `$.isHanuka()`
+

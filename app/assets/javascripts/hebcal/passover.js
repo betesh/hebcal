@@ -2,6 +2,8 @@
 
   var SHAVUOT_DISTANCE = 50;
   var SUKKOT_DISTANCE = 59 * 3;
+  var PURIM_DISTANCE = -30;
+  var STANDARD_HANUKAH_DISTANCE = 59 * 4 + 10;
 
   function is_leap_year(year) {
     return (-1 != [3,6,8,11,14,17,19].indexOf(year % 19));
@@ -69,7 +71,8 @@
   };
 
   function parse_date(date) {
-    return /([0-9]{3,5})-([0-9]{2})-([0-9]{2})/.exec(date);
+    date = /([0-9]{3,5})-([0-9]{2})-([0-9]{2})/.exec(date);
+    return new Date(date[1], date[2] - 1, date[3]);
   }
 
   function get_distance(date1, date2) {
@@ -84,13 +87,28 @@
 
   function pesach_distance(date) {
     date = parse_date(date);
-    var pesach = calculate_pesach(parseInt(date[1]));
-    date = new Date(date[1], date[2] - 1, date[3]);
+    var pesach = calculate_pesach(date.getFullYear());
     return get_distance(pesach, date);
   }
 
   function is_distance_in_range(distance, begin, length) {
     return distance >= begin && distance <= begin + length - 1;
+  }
+
+  function get_pesach_and_year_length(date) {
+    var year = date.getFullYear();
+    var pesach1 = calculate_pesach(year);
+    var pesach2;
+    if (get_distance(pesach1, date) < -59) {
+      pesach2 = pesach1;
+      pesach1 = calculate_pesach(year - 1);
+    } else {
+      pesach2 = calculate_pesach(year + 1);
+    }
+    var result = {};
+    result.pesach = pesach1;
+    result.length = get_distance(pesach1, pesach2);
+    return result;
   }
 
   $.isPesach = function(date) {
@@ -129,4 +147,17 @@
     return is_distance_in_range(distance, 0, 2) || is_distance_in_range(distance, 6, 2) || is_distance_in_range(distance, SHAVUOT_DISTANCE, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE - 14, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE, 2) || is_distance_in_range(distance, SUKKOT_DISTANCE + 7, 2);
   };
 
+  $.isPurim = function(date) {
+    return is_distance_in_range(pesach_distance(date), PURIM_DISTANCE, 1);
+  }
+
+  $.isHanuka = $.isHanukka = $.isHanukah = $.isHanukkah = $.isChanuka = $.isChanukka = $.isChanukah = $.isChanukkah = function(date) {
+    date = parse_date(date);
+    var data = get_pesach_and_year_length(date);
+    var distance = STANDARD_HANUKAH_DISTANCE;
+    if (-1 != [355, 385].indexOf(data.length)) {
+      distance = distance + 1;
+    }
+    return is_distance_in_range(get_distance(data.pesach, date), distance, 8);
+  }
 })($);
