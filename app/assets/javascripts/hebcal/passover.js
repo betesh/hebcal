@@ -160,4 +160,38 @@
     }
     return is_distance_in_range(get_distance(data.pesach, date), distance, 8);
   }
+
+  $.isRoshChodesh = $.isRoshHodesh = function(date) {
+    date = parse_date(date);
+    var result = get_pesach_and_year_length(date);
+    var distance = get_distance(result.pesach, date);
+    var length = result.length;
+    var distances             =  [   -59 + 15,    -59 + 16,    -59 + 30 + 15];
+    distances = distances.concat([         15,          16,          30 + 15]);
+    distances = distances.concat([    59 + 15,     59 + 16,     59 + 30 + 15]);
+    distances = distances.concat([2 * 59 + 15, 2 * 59 + 16]);
+    distances = distances.concat([3 * 59 + 15, 3 * 59 + 16, 3 * 59 + 30 + 15]);
+    if (-1 != [353, 383].indexOf(length)) {
+      distances = distances.concat([4 * 59 + 15]);
+      distances = distances.concat([4 * 59 + 30 + 14]);
+      if (383 == length) {
+        distances = distances.concat([5 * 59 + 14, 5 * 59 + 15]);
+      }
+    } else if (-1 != [354, 384].indexOf(length)) {
+      distances = distances.concat([4 * 59 + 15, 4 * 59 + 16]);
+      distances = distances.concat([4 * 59 + 30 + 15]);
+      if (384 == length) {
+        distances = distances.concat([5 * 59 + 15, 5 * 59 + 16]);
+      }
+    } else if (-1 != [355, 385].indexOf(length)) {
+      distances = distances.concat([3 * 59 + 30 + 16]);
+      distances = distances.concat([4 * 59 + 16, 4 * 59 + 17]);
+      distances = distances.concat([4 * 59 + 30 + 16]);
+      if (385 == length) {
+        distances = distances.concat([5 * 59 + 16, 5 * 59 + 17]);
+      }
+    }
+    return (-1 != distances.indexOf(distance));
+  }
+
 })($);

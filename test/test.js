@@ -337,6 +337,356 @@ try
   assert_true("Day8OfHanukaIsHanukaInA355DayYear", $.isHanuka("2015-12-14"));
   assert_false("DayAfterHanukaIsNotHanukaInA355DayYear", $.isHanuka("2015-12-15"));
 
+  // isRoshHodesh() tests
+  // 353 day year
+  assert_false("ErevRoshHodeshIyarIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-05-09"));
+  assert_true("Day1OfRoshHodeshIyarIsRoshHodeshInA353DayYear", $.isRoshChodesh("2043-05-10"));
+  assert_true("Day2OfRoshHodeshIyarIsRoshHodeshInA353DayYear", $.isRoshHodesh("2043-05-11"));
+  assert_false("DayAfterRoshHodeshIyarIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-05-12"));
+
+  assert_false("ErevRoshHodeshSivanIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-06-08"));
+  assert_true("RoshHodeshSivanIsRoshHodeshInA353DayYear", $.isRoshChodesh("2043-06-09"));
+  assert_false("DayAfterRoshHodeshSivanIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-06-10"));
+
+  assert_false("ErevRoshHodeshTammuzIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-07-07"));
+  assert_true("Day1OfRoshHodeshTammuzIsRoshHodeshInA353DayYear", $.isRoshChodesh("2043-07-08"));
+  assert_true("Day2OfRoshHodeshTammuzIsRoshHodeshInA353DayYear", $.isRoshHodesh("2043-07-09"));
+  assert_false("DayAfterRoshHodeshTammuzIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-07-10"));
+
+  assert_false("ErevRoshHodeshAbIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-08-06"));
+  assert_true("RoshHodeshAbIsRoshHodeshInA353DayYear", $.isRoshChodesh("2043-08-07"));
+  assert_false("DayAfterRoshHodeshAbIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-08-08"));
+
+  assert_false("ErevRoshHodeshElulIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-09-04"));
+  assert_true("Day1OfRoshHodeshElulIsRoshHodeshInA353DayYear", $.isRoshChodesh("2043-09-05"));
+  assert_true("Day2OfRoshHodeshElulIsRoshHodeshInA353DayYear", $.isRoshHodesh("2043-09-06"));
+  assert_false("DayAfterRoshHodeshElulIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-09-07"));
+
+  assert_false("ErevRoshHashanahIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-10-04"));
+  assert_false("Day1OfRoshHashanahIsNotRoshHodeshInA353DayYear", $.isRoshChodesh("2043-10-05"));
+  assert_false("Day2OfRoshHashanahIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-10-06"));
+
+  assert_false("ErevRoshHodeshHeshvanIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-11-02"));
+  assert_true("Day1OfRoshHodeshHeshvanIsRoshHodeshInA353DayYear", $.isRoshChodesh("2043-11-03"));
+  assert_true("Day2OfRoshHodeshHeshvanIsRoshHodeshInA353DayYear", $.isRoshHodesh("2043-11-04"));
+  assert_false("DayAfterRoshHodeshHeshvanIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-11-05"));
+
+  assert_false("ErevRoshHodeshKislevIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-12-02"));
+  assert_true("RoshHodeshKislevIsRoshHodeshInA353DayYear", $.isRoshChodesh("2043-12-03"));
+  assert_false("DayAfterRoshHodeshKislevIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-12-04"));
+
+  assert_false("ErevRoshHodeshTevetIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2043-12-31"));
+  assert_true("RoshHodeshTevetIsRoshHodeshInA353DayYear", $.isRoshChodesh("2044-01-01"));
+  assert_false("DayAfterRoshHodeshTevetIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2044-01-02"));
+
+  assert_false("ErevRoshHodeshShevatIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2044-01-29"));
+  assert_true("RoshHodeshShevatIsRoshHodeshInA353DayYear", $.isRoshChodesh("2044-01-30"));
+  assert_false("DayAfterRoshHodeshShevatIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2044-01-31"));
+
+  assert_false("ErevRoshHodeshAdarIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2044-02-27"));
+  assert_true("Day1OfRoshHodeshAdarIsRoshHodeshInA353DayYear", $.isRoshChodesh("2044-02-28"));
+  assert_true("Day2OfRoshHodeshAdarIsRoshHodeshInA353DayYear", $.isRoshHodesh("2044-02-29"));
+  assert_false("DayAfterRoshHodeshAdarIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2044-03-01"));
+
+  assert_false("ErevRoshHodeshNisanIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2044-03-28"));
+  assert_true("RoshHodeshNisanIsRoshHodeshInA353DayYear", $.isRoshChodesh("2044-03-29"));
+  assert_false("DayAfterRoshHodeshNisanIsNotRoshHodeshInA353DayYear", $.isRoshHodesh("2044-03-30"));
+
+  // 354 day year
+  assert_false("ErevRoshHodeshIyarIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-04-30"));
+  assert_true("Day1OfRoshHodeshIyarIsRoshHodeshInA354DayYear", $.isRoshChodesh("2041-05-01"));
+  assert_true("Day2OfRoshHodeshIyarIsRoshHodeshInA354DayYear", $.isRoshHodesh("2041-05-02"));
+  assert_false("DayAfterRoshHodeshIyarIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-05-03"));
+
+  assert_false("ErevRoshHodeshSivanIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-05-30"));
+  assert_true("RoshHodeshSivanIsRoshHodeshInA354DayYear", $.isRoshChodesh("2041-05-31"));
+  assert_false("DayAfterRoshHodeshSivanIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-06-01"));
+
+  assert_false("ErevRoshHodeshTammuzIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-06-28"));
+  assert_true("Day1OfRoshHodeshTammuzIsRoshHodeshInA354DayYear", $.isRoshChodesh("2041-06-29"));
+  assert_true("Day2OfRoshHodeshTammuzIsRoshHodeshInA354DayYear", $.isRoshHodesh("2041-06-30"));
+  assert_false("DayAfterRoshHodeshTammuzIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-07-01"));
+
+  assert_false("ErevRoshHodeshAbIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-07-28"));
+  assert_true("RoshHodeshAbIsRoshHodeshInA354DayYear", $.isRoshChodesh("2041-07-29"));
+  assert_false("DayAfterRoshHodeshAbIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-07-30"));
+
+  assert_false("ErevRoshHodeshElulIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-08-26"));
+  assert_true("Day1OfRoshHodeshElulIsRoshHodeshInA354DayYear", $.isRoshChodesh("2041-08-27"));
+  assert_true("Day2OfRoshHodeshElulIsRoshHodeshInA354DayYear", $.isRoshHodesh("2041-08-28"));
+  assert_false("DayAfterRoshHodeshElulIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-08-29"));
+
+  assert_false("ErevRoshHashanahIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-09-25"));
+  assert_false("Day1OfRoshHashanahIsNotRoshHodeshInA354DayYear", $.isRoshChodesh("2041-09-26"));
+  assert_false("Day2OfRoshHashanahIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-09-27"));
+
+  assert_false("ErevRoshHodeshHeshvanIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-10-24"));
+  assert_true("Day1OfRoshHodeshHeshvanIsRoshHodeshInA354DayYear", $.isRoshChodesh("2041-10-25"));
+  assert_true("Day2OfRoshHodeshHeshvanIsRoshHodeshInA354DayYear", $.isRoshHodesh("2041-10-26"));
+  assert_false("DayAfterRoshHodeshHeshvanIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-10-27"));
+
+  assert_false("ErevRoshHodeshKislevIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-11-23"));
+  assert_true("RoshHodeshKislevIsRoshHodeshInA354DayYear", $.isRoshChodesh("2041-11-24"));
+  assert_false("DayAfterRoshHodeshKislevIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-11-25"));
+
+  assert_false("ErevRoshHodeshTevetIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-12-22"));
+  assert_true("Day1OfRoshHodeshTevetIsRoshHodeshInA354DayYear", $.isRoshChodesh("2041-12-23"));
+  assert_true("Day2OfRoshHodeshTevetIsRoshHodeshInA354DayYear", $.isRoshChodesh("2041-12-24"));
+  assert_false("DayAfterRoshHodeshTevetIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2041-12-25"));
+
+  assert_false("ErevRoshHodeshShevatIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2042-01-21"));
+  assert_true("RoshHodeshShevatIsRoshHodeshInA354DayYear", $.isRoshChodesh("2042-01-22"));
+  assert_false("DayAfterRoshHodeshShevatIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2042-01-23"));
+
+  assert_false("ErevRoshHodeshAdarIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2042-02-19"));
+  assert_true("Day1OfRoshHodeshAdarIsRoshHodeshInA354DayYear", $.isRoshChodesh("2042-02-20"));
+  assert_true("Day2OfRoshHodeshAdarIsRoshHodeshInA354DayYear", $.isRoshHodesh("2042-02-21"));
+  assert_false("DayAfterRoshHodeshAdarIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2042-02-22"));
+
+  assert_false("ErevRoshHodeshNisanIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2042-03-21"));
+  assert_true("RoshHodeshNisanIsRoshHodeshInA354DayYear", $.isRoshChodesh("2042-03-22"));
+  assert_false("DayAfterRoshHodeshNisanIsNotRoshHodeshInA354DayYear", $.isRoshHodesh("2042-03-23"));
+
+  // 355 day year
+  assert_false("ErevRoshHodeshIyarIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-04-26"));
+  assert_true("Day1OfRoshHodeshIyarIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-04-27"));
+  assert_true("Day2OfRoshHodeshIyarIsRoshHodeshInA355DayYear", $.isRoshHodesh("2044-04-28"));
+  assert_false("DayAfterRoshHodeshIyarIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-04-29"));
+
+  assert_false("ErevRoshHodeshSivanIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-05-26"));
+  assert_true("RoshHodeshSivanIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-05-27"));
+  assert_false("DayAfterRoshHodeshSivanIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-05-28"));
+
+  assert_false("ErevRoshHodeshTammuzIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-06-24"));
+  assert_true("Day1OfRoshHodeshTammuzIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-06-25"));
+  assert_true("Day2OfRoshHodeshTammuzIsRoshHodeshInA355DayYear", $.isRoshHodesh("2044-06-26"));
+  assert_false("DayAfterRoshHodeshTammuzIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-06-27"));
+
+  assert_false("ErevRoshHodeshAbIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-07-24"));
+  assert_true("RoshHodeshAbIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-07-25"));
+  assert_false("DayAfterRoshHodeshAbIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-07-26"));
+
+  assert_false("ErevRoshHodeshElulIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-08-22"));
+  assert_true("Day1OfRoshHodeshElulIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-08-23"));
+  assert_true("Day2OfRoshHodeshElulIsRoshHodeshInA355DayYear", $.isRoshHodesh("2044-08-24"));
+  assert_false("DayAfterRoshHodeshElulIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-08-25"));
+
+  assert_false("ErevRoshHashanahIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-09-21"));
+  assert_false("Day1OfRoshHashanahIsNotRoshHodeshInA355DayYear", $.isRoshChodesh("2044-09-22"));
+  assert_false("Day2OfRoshHashanahIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-09-23"));
+
+  assert_false("ErevRoshHodeshHeshvanIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-10-20"));
+  assert_true("Day1OfRoshHodeshHeshvanIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-10-21"));
+  assert_true("Day2OfRoshHodeshHeshvanIsRoshHodeshInA355DayYear", $.isRoshHodesh("2044-10-22"));
+  assert_false("DayAfterRoshHodeshHeshvanIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-10-23"));
+
+  assert_false("ErevRoshHodeshKislevIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-11-19"));
+  assert_true("Day1OfRoshHodeshKislevIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-11-20"));
+  assert_true("Day2OfRoshHodeshKislevIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-11-21"));
+  assert_false("DayAfterRoshHodeshKislevIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-11-22"));
+
+  assert_false("ErevRoshHodeshTevetIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-12-19"));
+  assert_true("Day1OfRoshHodeshTevetIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-12-20"));
+  assert_true("Day2OfRoshHodeshTevetIsRoshHodeshInA355DayYear", $.isRoshChodesh("2044-12-21"));
+  assert_false("DayAfterRoshHodeshTevetIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2044-12-22"));
+
+  assert_false("ErevRoshHodeshShevatIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2045-01-18"));
+  assert_true("RoshHodeshShevatIsRoshHodeshInA355DayYear", $.isRoshChodesh("2045-01-19"));
+  assert_false("DayAfterRoshHodeshShevatIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2045-01-20"));
+
+  assert_false("ErevRoshHodeshAdarIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2045-02-16"));
+  assert_true("Day1OfRoshHodeshAdarIsRoshHodeshInA355DayYear", $.isRoshChodesh("2045-02-17"));
+  assert_true("Day2OfRoshHodeshAdarIsRoshHodeshInA355DayYear", $.isRoshHodesh("2045-02-18"));
+  assert_false("DayAfterRoshHodeshAdarIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2045-02-19"));
+
+  assert_false("ErevRoshHodeshNisanIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2045-03-18"));
+  assert_true("RoshHodeshNisanIsRoshHodeshInA355DayYear", $.isRoshChodesh("2045-03-19"));
+  assert_false("DayAfterRoshHodeshNisanIsNotRoshHodeshInA355DayYear", $.isRoshHodesh("2045-03-20"));
+
+  // 383 day year
+  assert_false("ErevRoshHodeshIyarIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-04-12"));
+  assert_true("Day1OfRoshHodeshIyarIsRoshHodeshInA383DayYear", $.isRoshChodesh("2040-04-13"));
+  assert_true("Day2OfRoshHodeshIyarIsRoshHodeshInA383DayYear", $.isRoshHodesh("2040-04-14"));
+  assert_false("DayAfterRoshHodeshIyarIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-04-15"));
+
+  assert_false("ErevRoshHodeshSivanIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-05-12"));
+  assert_true("RoshHodeshSivanIsRoshHodeshInA383DayYear", $.isRoshChodesh("2040-05-13"));
+  assert_false("DayAfterRoshHodeshSivanIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-05-14"));
+
+  assert_false("ErevRoshHodeshTammuzIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-06-10"));
+  assert_true("Day1OfRoshHodeshTammuzIsRoshHodeshInA383DayYear", $.isRoshChodesh("2040-06-11"));
+  assert_true("Day2OfRoshHodeshTammuzIsRoshHodeshInA383DayYear", $.isRoshHodesh("2040-06-12"));
+  assert_false("DayAfterRoshHodeshTammuzIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-06-13"));
+
+  assert_false("ErevRoshHodeshAbIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-07-10"));
+  assert_true("RoshHodeshAbIsRoshHodeshInA383DayYear", $.isRoshChodesh("2040-07-11"));
+  assert_false("DayAfterRoshHodeshAbIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-07-12"));
+
+  assert_false("ErevRoshHodeshElulIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-08-08"));
+  assert_true("Day1OfRoshHodeshElulIsRoshHodeshInA383DayYear", $.isRoshChodesh("2040-08-09"));
+  assert_true("Day2OfRoshHodeshElulIsRoshHodeshInA383DayYear", $.isRoshHodesh("2040-08-10"));
+  assert_false("DayAfterRoshHodeshElulIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-08-11"));
+
+  assert_false("ErevRoshHashanahIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-09-07"));
+  assert_false("Day1OfRoshHashanahIsNotRoshHodeshInA383DayYear", $.isRoshChodesh("2040-09-08"));
+  assert_false("Day2OfRoshHashanahIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-09-09"));
+
+  assert_false("ErevRoshHodeshHeshvanIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-10-06"));
+  assert_true("Day1OfRoshHodeshHeshvanIsRoshHodeshInA383DayYear", $.isRoshChodesh("2040-10-07"));
+  assert_true("Day2OfRoshHodeshHeshvanIsRoshHodeshInA383DayYear", $.isRoshHodesh("2040-10-08"));
+  assert_false("DayAfterRoshHodeshHeshvanIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-10-09"));
+
+  assert_false("ErevRoshHodeshKislevIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-11-05"));
+  assert_true("RoshHodeshKislevIsRoshHodeshInA383DayYear", $.isRoshChodesh("2040-11-06"));
+  assert_false("DayAfterRoshHodeshKislevIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-11-07"));
+
+  assert_false("ErevRoshHodeshTevetIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-12-04"));
+  assert_true("RoshHodeshTevetIsRoshHodeshInA383DayYear", $.isRoshChodesh("2040-12-05"));
+  assert_false("DayAfterRoshHodeshTevetIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2040-12-06"));
+
+  assert_false("ErevRoshHodeshShevatIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2041-01-02"));
+  assert_true("RoshHodeshShevatIsRoshHodeshInA383DayYear", $.isRoshChodesh("2041-01-03"));
+  assert_false("DayAfterRoshHodeshShevatIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2041-01-04"));
+
+  assert_false("ErevRoshHodeshAdar1IsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2041-01-31"));
+  assert_true("Day1OfRoshHodeshAdar1IsRoshHodeshInA383DayYear", $.isRoshChodesh("2041-02-01"));
+  assert_true("Day2OfRoshHodeshAdar1IsRoshHodeshInA383DayYear", $.isRoshHodesh("2041-02-02"));
+  assert_false("DayAfterRoshHodeshAdar1IsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2041-02-03"));
+
+  assert_false("ErevRoshHodeshAdar2IsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2041-03-02"));
+  assert_true("Day1OfRoshHodeshAdar2IsRoshHodeshInA383DayYear", $.isRoshChodesh("2041-03-03"));
+  assert_true("Day2OfRoshHodeshAdar2IsRoshHodeshInA383DayYear", $.isRoshHodesh("2041-03-04"));
+  assert_false("DayAfterRoshHodeshAdar2IsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2041-03-05"));
+
+  assert_false("ErevRoshHodeshNisanIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2041-04-01"));
+  assert_true("RoshHodeshNisanIsRoshHodeshInA383DayYear", $.isRoshChodesh("2041-04-02"));
+  assert_false("DayAfterRoshHodeshNisanIsNotRoshHodeshInA383DayYear", $.isRoshHodesh("2041-04-03"));
+
+  // 384 day year
+  assert_false("ErevRoshHodeshIyarIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-04-11"));
+  assert_true("Day1OfRoshHodeshIyarIsRoshHodeshInA384DayYear", $.isRoshChodesh("2021-04-12"));
+  assert_true("Day2OfRoshHodeshIyarIsRoshHodeshInA384DayYear", $.isRoshHodesh("2021-04-13"));
+  assert_false("DayAfterRoshHodeshIyarIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-04-14"));
+
+  assert_false("ErevRoshHodeshSivanIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-05-11"));
+  assert_true("RoshHodeshSivanIsRoshHodeshInA384DayYear", $.isRoshChodesh("2021-05-12"));
+  assert_false("DayAfterRoshHodeshSivanIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-05-13"));
+
+  assert_false("ErevRoshHodeshTammuzIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-06-09"));
+  assert_true("Day1OfRoshHodeshTammuzIsRoshHodeshInA384DayYear", $.isRoshChodesh("2021-06-10"));
+  assert_true("Day2OfRoshHodeshTammuzIsRoshHodeshInA384DayYear", $.isRoshHodesh("2021-06-11"));
+  assert_false("DayAfterRoshHodeshTammuzIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-06-12"));
+
+  assert_false("ErevRoshHodeshAbIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-07-09"));
+  assert_true("RoshHodeshAbIsRoshHodeshInA384DayYear", $.isRoshChodesh("2021-07-10"));
+  assert_false("DayAfterRoshHodeshAbIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-07-11"));
+
+  assert_false("ErevRoshHodeshElulIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-08-07"));
+  assert_true("Day1OfRoshHodeshElulIsRoshHodeshInA384DayYear", $.isRoshChodesh("2021-08-08"));
+  assert_true("Day2OfRoshHodeshElulIsRoshHodeshInA384DayYear", $.isRoshHodesh("2021-08-09"));
+  assert_false("DayAfterRoshHodeshElulIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-08-10"));
+
+  assert_false("ErevRoshHashanahIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-09-06"));
+  assert_false("Day1OfRoshHashanahIsNotRoshHodeshInA384DayYear", $.isRoshChodesh("2021-09-07"));
+  assert_false("Day2OfRoshHashanahIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-09-08"));
+
+  assert_false("ErevRoshHodeshHeshvanIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-10-05"));
+  assert_true("Day1OfRoshHodeshHeshvanIsRoshHodeshInA384DayYear", $.isRoshChodesh("2021-10-06"));
+  assert_true("Day2OfRoshHodeshHeshvanIsRoshHodeshInA384DayYear", $.isRoshHodesh("2021-10-07"));
+  assert_false("DayAfterRoshHodeshHeshvanIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-10-08"));
+
+  assert_false("ErevRoshHodeshKislevIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-11-04"));
+  assert_true("RoshHodeshKislevIsRoshHodeshInA384DayYear", $.isRoshChodesh("2021-11-05"));
+  assert_false("DayAfterRoshHodeshKislevIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-11-06"));
+
+  assert_false("ErevRoshHodeshTevetIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-12-03"));
+  assert_true("Day1OfRoshHodeshTevetIsRoshHodeshInA384DayYear", $.isRoshChodesh("2021-12-04"));
+  assert_true("Day2OfRoshHodeshTevetIsRoshHodeshInA384DayYear", $.isRoshChodesh("2021-12-05"));
+  assert_false("DayAfterRoshHodeshTevetIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2021-12-06"));
+
+  assert_false("ErevRoshHodeshShevatIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2022-01-02"));
+  assert_true("RoshHodeshShevatIsRoshHodeshInA384DayYear", $.isRoshChodesh("2022-01-03"));
+  assert_false("DayAfterRoshHodeshShevatIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2022-01-04"));
+
+  assert_false("ErevRoshHodeshAdar1IsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2022-01-31"));
+  assert_true("Day1OfRoshHodeshAdar1IsRoshHodeshInA384DayYear", $.isRoshChodesh("2022-02-01"));
+  assert_true("Day2OfRoshHodeshAdar1IsRoshHodeshInA384DayYear", $.isRoshHodesh("2022-02-02"));
+  assert_false("DayAfterRoshHodeshAdar1IsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2022-02-03"));
+
+  assert_false("ErevRoshHodeshAdar2IsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2022-03-02"));
+  assert_true("Day1OfRoshHodeshAdar2IsRoshHodeshInA384DayYear", $.isRoshChodesh("2022-03-03"));
+  assert_true("Day2OfRoshHodeshAdar2IsRoshHodeshInA384DayYear", $.isRoshHodesh("2022-03-04"));
+  assert_false("DayAfterRoshHodeshAdar2IsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2022-03-05"));
+
+  assert_false("ErevRoshHodeshNisanIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2022-04-01"));
+  assert_true("RoshHodeshNisanIsRoshHodeshInA384DayYear", $.isRoshChodesh("2022-04-02"));
+  assert_false("DayAfterRoshHodeshNisanIsNotRoshHodeshInA384DayYear", $.isRoshHodesh("2022-04-03"));
+
+  // 385 day year
+  assert_false("ErevRoshHodeshIyarIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-04-16"));
+  assert_true("Day1OfRoshHodeshIyarIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-04-17"));
+  assert_true("Day2OfRoshHodeshIyarIsRoshHodeshInA385DayYear", $.isRoshHodesh("2026-04-18"));
+  assert_false("DayAfterRoshHodeshIyarIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-04-19"));
+
+  assert_false("ErevRoshHodeshSivanIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-05-16"));
+  assert_true("RoshHodeshSivanIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-05-17"));
+  assert_false("DayAfterRoshHodeshSivanIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-05-18"));
+
+  assert_false("ErevRoshHodeshTammuzIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-06-14"));
+  assert_true("Day1OfRoshHodeshTammuzIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-06-15"));
+  assert_true("Day2OfRoshHodeshTammuzIsRoshHodeshInA385DayYear", $.isRoshHodesh("2026-06-16"));
+  assert_false("DayAfterRoshHodeshTammuzIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-06-17"));
+
+  assert_false("ErevRoshHodeshAbIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-07-14"));
+  assert_true("RoshHodeshAbIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-07-15"));
+  assert_false("DayAfterRoshHodeshAbIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-07-16"));
+
+  assert_false("ErevRoshHodeshElulIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-08-12"));
+  assert_true("Day1OfRoshHodeshElulIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-08-13"));
+  assert_true("Day2OfRoshHodeshElulIsRoshHodeshInA385DayYear", $.isRoshHodesh("2026-08-14"));
+  assert_false("DayAfterRoshHodeshElulIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-08-15"));
+
+  assert_false("ErevRoshHashanahIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-09-11"));
+  assert_false("Day1OfRoshHashanahIsNotRoshHodeshInA385DayYear", $.isRoshChodesh("2026-09-12"));
+  assert_false("Day2OfRoshHashanahIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-09-13"));
+
+  assert_false("ErevRoshHodeshHeshvanIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-10-10"));
+  assert_true("Day1OfRoshHodeshHeshvanIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-10-11"));
+  assert_true("Day2OfRoshHodeshHeshvanIsRoshHodeshInA385DayYear", $.isRoshHodesh("2026-10-12"));
+  assert_false("DayAfterRoshHodeshHeshvanIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-10-13"));
+
+  assert_false("ErevRoshHodeshKislevIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-11-09"));
+  assert_true("Day1OfRoshHodeshKislevIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-11-10"));
+  assert_true("Day2OfRoshHodeshKislevIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-11-11"));
+  assert_false("DayAfterRoshHodeshKislevIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-11-12"));
+
+  assert_false("ErevRoshHodeshTevetIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-12-09"));
+  assert_true("Day1OfRoshHodeshTevetIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-12-10"));
+  assert_true("Day2OfRoshHodeshTevetIsRoshHodeshInA385DayYear", $.isRoshChodesh("2026-12-11"));
+  assert_false("DayAfterRoshHodeshTevetIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2026-12-12"));
+
+  assert_false("ErevRoshHodeshShevatIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2027-01-08"));
+  assert_true("RoshHodeshShevatIsRoshHodeshInA385DayYear", $.isRoshChodesh("2027-01-09"));
+  assert_false("DayAfterRoshHodeshShevatIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2027-01-10"));
+
+  assert_false("ErevRoshHodeshAdar1IsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2027-02-06"));
+  assert_true("Day1OfRoshHodeshAdar1IsRoshHodeshInA385DayYear", $.isRoshChodesh("2027-02-07"));
+  assert_true("Day2OfRoshHodeshAdar1IsRoshHodeshInA385DayYear", $.isRoshHodesh("2027-02-08"));
+  assert_false("DayAfterRoshHodeshAdar1IsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2027-02-09"));
+
+  assert_false("ErevRoshHodeshAdar2IsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2027-03-08"));
+  assert_true("Day1OfRoshHodeshAdar2IsRoshHodeshInA385DayYear", $.isRoshChodesh("2027-03-09"));
+  assert_true("Day2OfRoshHodeshAdar2IsRoshHodeshInA385DayYear", $.isRoshHodesh("2027-03-10"));
+  assert_false("DayAfterRoshHodeshAdar2IsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2027-03-11"));
+
+  assert_false("ErevRoshHodeshNisanIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2027-04-07"));
+  assert_true("RoshHodeshNisanIsRoshHodeshInA385DayYear", $.isRoshChodesh("2027-04-08"));
+  assert_false("DayAfterRoshHodeshNisanIsNotRoshHodeshInA385DayYear", $.isRoshHodesh("2027-04-09"));
+
+
+
+
+
 } catch (e) {
   output += "<div style=\"color:red;\">An exception was thrown in a test.  Testing ended there.<br />" + e  + "</div>";
 } finally {
