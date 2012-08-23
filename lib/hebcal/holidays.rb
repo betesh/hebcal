@@ -44,5 +44,108 @@ public
       distance = H.DistanceToPassover(date)
       result = H.InRange(distance, 0, 2) || H.InRange(distance, 6, 2) || H.InRange(distance, HolidayConstants::SHAVUOT_DISTANCE, 2) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE - 14, 2) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE, 2) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE + 7, 2)
     end
+
+    def IsPurim date
+      H.InRange(H.DistanceToPassover(date), HolidayConstants::PURIM_DISTANCE, 1)
+    end
+
+    def IsHanukah date
+      pesach1 = H.WhenIsPesach(date.year)
+      pesach2 = pesach1 > date ? pesach1 : H.WhenIsPesach(pesach1.year + 1)
+      pesach1 = H.WhenIsPesach(pesach1.year - 1) if pesach1 > date
+      length = H.Distance pesach1, pesach2
+      distance = HolidayConstants::STANDARD_HANUKAH_DISTANCE
+      distance = distance + 1 if [355, 385].include?(length)
+      H.InRange(H.Distance(pesach1, date), distance, 8)
+    end
+
+    def IsHanukkah date
+      IsHanukah date
+    end
+
+    def IsHanuka date
+      IsHanukah date
+    end
+
+    def IsHanukka date
+      IsHanukah date
+    end
+
+    def IsChanukah date
+      IsHanukah date
+    end
+
+    def IsChanukkah date
+      IsHanukah date
+    end
+
+    def IsChanuka date
+      IsHanukah date
+    end
+
+    def IsChanukka date
+      IsHanukah date
+    end
+
+    def Is10Tevet date
+      pesach1 = H.WhenIsPesach(date.year)
+      pesach2 = pesach1 > date ? pesach1 : H.WhenIsPesach(pesach1.year + 1)
+      pesach1 = H.WhenIsPesach(pesach1.year - 1) if pesach1 > date
+      length = H.Distance pesach1, pesach2
+      distance = HolidayConstants::STANDARD_10_TEVET_DISTANCE
+      distance = distance - 1 if [353, 383].include?(length)
+      distance = distance + 1 if [355, 385].include?(length)
+      H.InRange(H.Distance(pesach1, date), distance, 1)
+    end
+
+    def IsTaanitEster date
+      (6 != date.wday && H.InRange(H.DistanceToPassover(date), HolidayConstants::PURIM_DISTANCE - 1, 1)) || (4 == date.wday && H.InRange(H.DistanceToPassover(date), HolidayConstants::PURIM_DISTANCE - 3, 1))
+    end
+
+    def IsTaanitEsther date
+      IsTaanitEster date
+    end
+
+    def IsFastWithSundayPostponement date, distance
+      (6 != date.wday && H.InRange(H.DistanceToPassover(date), distance, 1)) || (0 == date.wday && H.InRange(H.DistanceToPassover(date), distance + 1, 1))
+    end
+
+    def Is9Ab date
+      IsFastWithSundayPostponement date, HolidayConstants::FAST_AB_DISTANCE
+    end
+
+    def Is9Av date
+      Is9Ab date
+    end
+
+    def Is17Tammuz date
+      IsFastWithSundayPostponement date, HolidayConstants::FAST_AB_DISTANCE - 21
+    end
+
+    def Is17Tamuz date
+      Is17Tammuz date
+    end
+
+    def IsFastOfGedalia date
+      IsFastWithSundayPostponement date, HolidayConstants::SUKKOT_DISTANCE - 12
+    end
+
+    def IsFastOfGedaliah date
+      IsFastOfGedalia date
+    end
+
+    def IsTzomGedalia date
+      IsFastOfGedalia date
+    end
+
+    def IsTzomGedaliah date
+      IsFastOfGedalia date
+    end
+
+    def IsTaanit date
+      return false if 6 == date.wday
+      distance = H.DistanceToPassover(date)
+      H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE, 1) || H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE - 21, 1) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE - 12, 1) || H.InRange(distance, HolidayConstants::PURIM_DISTANCE - 1, 1) || (0 == date.wday && (H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE + 1, 1) || H.InRange(distance, HolidayConstants::FAST_AB_DISTANCE - 21 + 1, 1) || H.InRange(distance, HolidayConstants::SUKKOT_DISTANCE - 12 + 1, 1))) || (4 == date.wday && H.InRange(H.DistanceToPassover(date), HolidayConstants::PURIM_DISTANCE - 3, 1)) || Is10Tevet(date)
+    end
   end
 end

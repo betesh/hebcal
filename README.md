@@ -1,8 +1,8 @@
 # HebCal
 
-Determines the date of Passover for a Gregorian year. Also includes boolean functions to check whether a date is a Jewish holiday.
+Determines the date of Passover for a Gregorian year. Also includes boolean functions to check whether a date is a Jewish holiday or Fast Day.
 Supported languages:
- Javascript (requires jQuery)
+ Javascript (currently does not support checking for Hanukah, Purim or Fast days)
  Ruby
 
 ## Installation as a Ruby gem
@@ -14,16 +14,16 @@ And then execute:
 Or install it yourself as:
     $ gem install hebcal
 
+## General notes
+
+1. 3- and 4-digit years are supported, so the domain of valid years is 100-9999.  For years before the Gregorian transition (1582), the transition is ignored and the proleptic Gregorian calendar is used.
+
 ## Ruby Version
 
 ### To Run Unit Tests
     $ rake test
 
 ### To Use
-
-#### General notes
-
-    3- and 4-digit years are supported, so the domain of valid years is 100-9999.  For years before the Gregorian transition (1582), the transition is ignored and the proleptic Gregorian calendar is used.
 
 #### Calculating the date of Passover
 1. At the top of the file where the class is defined, declare `require `hebcal``
@@ -47,9 +47,15 @@ Or install it yourself as:
 
  1. `IsMoed()`: Hol HaMoed Pesach or Hol HaMoed Sukkot
 
- 1. `IsYomTov()`: `(IsPesach() || IsShavuot() || IsRoshHashanah() || IsSukkot()) && !IsMoed()`
+ 1. `IsYomTov()`: `IsPesach() || IsShavuot() || IsRoshHashanah() || IsSukkot()) && !IsMoed()`
 
      Note that IsYomTov(yk) == false, where yk is the date of Yom Kippur.
+
+ 1. `IsPurim()`, `IsHanuka()`
+
+ 1. `Is10Tevet()`, `IsTaanitEster()`, `Is17Tamuz()`, `Is9Av()`, `IsFastOfGedalia()`
+
+ 1. `IsTaanit()`: `Is10Tevet() || IsTaanitEster() || Is17Tamuz() || Is9Av() || IsFastOfGedalia()`
 
 ## Javascript Version
 
@@ -66,7 +72,6 @@ Or install it yourself as:
 
 1. All date formats are YYYY-mm-dd, where month is index from 1 (i.e. 1 == January, not the usual javascript index of 0 == January!) and YYYY is the Gregorian year.
 
-    3- and 4-digit years are supported, so the domain of valid years is 100-9999.  For years before the Gregorian transition (1582), the transition is ignored and the proleptic Gregorian calendar is used.
 1. $.whenIsPesach(yyyy) returns a date in the above format, where yyyy is the Gregorian year.
 
     Note that the date returned is the first day of Pesach, not the day on which Pesach begins at sunset.

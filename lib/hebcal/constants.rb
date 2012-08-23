@@ -20,5 +20,9 @@ module HebCal
   module HolidayConstants
     SHAVUOT_DISTANCE = 50
     SUKKOT_DISTANCE = 59 * 3
+    PURIM_DISTANCE = -30
+    FAST_AB_DISTANCE = 59 * 2 - 6
+    STANDARD_HANUKAH_DISTANCE = 59 * 4 + 10
+    STANDARD_10_TEVET_DISTANCE = 59 * 4 + 30 - 5
   end
 end
