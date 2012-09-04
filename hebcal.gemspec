@@ -6,6 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["iybetesh@gmail.com"]
   gem.description   = `cat README.md`
   gem.summary       = 'Determines the date of Passover for a Gregorian year. Determines whether a Gregorian date is a Jewish holiday.'
+  gem.homepage      = "https://github.com/betesh/hebcal"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
