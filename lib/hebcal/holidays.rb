@@ -16,10 +16,7 @@ public
     def IsRoshHashanah date
       H.InRange(H.DistanceToPassover(date), HolidayConstants::SUKKOT_DISTANCE - 14, 2)
     end
-
-    def IsRoshHaShanah date
-      IsRoshHashanah date
-    end
+    alias_method :IsRoshHaShanah,  :IsRoshHashanah
 
     def IsYomKippur date
       H.InRange(H.DistanceToPassover(date), HolidayConstants::SUKKOT_DISTANCE - 5, 1)
@@ -56,33 +53,13 @@ public
       H.InRange(H.Distance(hash[:pesach], date), distance, 8)
     end
 
-    def IsHanukkah date
-      IsHanukah date
-    end
-
-    def IsHanuka date
-      IsHanukah date
-    end
-
-    def IsHanukka date
-      IsHanukah date
-    end
-
-    def IsChanukah date
-      IsHanukah date
-    end
-
-    def IsChanukkah date
-      IsHanukah date
-    end
-
-    def IsChanuka date
-      IsHanukah date
-    end
-
-    def IsChanukka date
-      IsHanukah date
-    end
+    alias_method :IsHanukkah,  :IsHanukah
+    alias_method :IsHanuka,    :IsHanukah
+    alias_method :IsHanukka,   :IsHanukah
+    alias_method :IsChanukah,  :IsHanukah
+    alias_method :IsChanukkah, :IsHanukah
+    alias_method :IsChanuka,   :IsHanukah
+    alias_method :IsChanukka,  :IsHanukah
 
     def Is10Tevet date
       hash = H.PesachAndYearLength date
@@ -95,10 +72,7 @@ public
     def IsTaanitEster date
       (6 != date.wday && H.InRange(H.DistanceToPassover(date), HolidayConstants::PURIM_DISTANCE - 1, 1)) || (4 == date.wday && H.InRange(H.DistanceToPassover(date), HolidayConstants::PURIM_DISTANCE - 3, 1))
     end
-
-    def IsTaanitEsther date
-      IsTaanitEster date
-    end
+    alias_method :IsTaanitEsther, :IsTaanitEster
 
     def IsFastWithSundayPostponement date, distance
       (6 != date.wday && H.InRange(H.DistanceToPassover(date), distance, 1)) || (0 == date.wday && H.InRange(H.DistanceToPassover(date), distance + 1, 1))
@@ -107,34 +81,19 @@ public
     def Is9Ab date
       IsFastWithSundayPostponement date, HolidayConstants::FAST_AB_DISTANCE
     end
-
-    def Is9Av date
-      Is9Ab date
-    end
+    alias_method :Is9Av, :Is9Ab
 
     def Is17Tammuz date
       IsFastWithSundayPostponement date, HolidayConstants::FAST_AB_DISTANCE - 21
     end
-
-    def Is17Tamuz date
-      Is17Tammuz date
-    end
+    alias_method :Is17Tamuz, :Is17Tammuz
 
     def IsFastOfGedalia date
       IsFastWithSundayPostponement date, HolidayConstants::SUKKOT_DISTANCE - 12
     end
-
-    def IsFastOfGedaliah date
-      IsFastOfGedalia date
-    end
-
-    def IsTzomGedalia date
-      IsFastOfGedalia date
-    end
-
-    def IsTzomGedaliah date
-      IsFastOfGedalia date
-    end
+    alias_method :IsFastOfGedaliah, :IsFastOfGedalia
+    alias_method :IsTzomGedalia, :IsFastOfGedalia
+    alias_method :IsTzomGedaliah, :IsFastOfGedalia
 
     def IsTaanit date
       return false if 6 == date.wday
@@ -167,9 +126,6 @@ public
       end
       distances.include? distance
     end
-
-    def IsRoshChodesh date
-      IsRoshHodesh date
-    end
+    alias_method :IsRoshChodesh, :IsRoshHodesh
   end
 end
